@@ -46,9 +46,11 @@ export function ScenarioWalkthrough({ scenario }: { scenario: Scenario }) {
       <h2 className="sr-only">{scenario.summary}</h2>
 
       <div style={{
-        fontSize: 15, lineHeight: 2, color: 'var(--text-primary)',
+        fontSize: 15, lineHeight: 2,
+        color: activeToken ? 'var(--text-muted)' : 'var(--text-primary)',
         background: 'var(--surface-1)', borderRadius: 12,
         padding: '1rem 1.25rem', marginBottom: '1rem',
+        transition: 'color .25s',
       }}>
         {facts.map((seg, idx) => {
           if (!seg.tokenId) return <span key={idx}>{seg.text}</span>;
@@ -56,7 +58,8 @@ export function ScenarioWalkthrough({ scenario }: { scenario: Scenario }) {
           return (
             <span key={idx} className="tok" style={{
               background: active ? role.bg : 'transparent',
-              color: active ? role.tx : 'var(--text-primary)',
+              color: active ? role.tx : 'inherit',
+              boxShadow: active ? '0 0 0 1px currentColor' : 'none',
             }}>{seg.text}</span>
           );
         })}
