@@ -6,16 +6,17 @@ export const taylorInducements: Scenario = {
   summary:
     'Walkthrough of the Taylor inducement scenario: each escalating offer is highlighted and mapped to ENZ Code rules, then assembled into the answers.',
   facts: [
-    { text: 'Taylor, a council engineer, evaluates suppliers and recommends them for projects. Supplier BuildCo engages. First: an invite to a ' },
-    { text: 'public product launch with light refreshments, many attendees', tokenId: 's1' },
-    { text: '. Then, the next day, a ' },
-    { text: 'small private lunch with senior staff to \u201cdiscuss council opportunities\u201d', tokenId: 's2' },
-    { text: '. Then ' },
-    { text: 'tickets to a major sporting event with hospitality, as a \u201cthank you\u201d', tokenId: 's3' },
-    { text: '. Finally, an offer to ' },
-    { text: 'fly Taylor to a project site, all travel and accommodation paid, before procurement decisions', tokenId: 's4' },
-    { text: '.' },
+    { text: 'Taylor is a professional engineer working for a local council and is involved in evaluating suppliers and making recommendations for upcoming infrastructure projects. Taylor is approached by a supplier, BuildCo, who is interested in working with the council. (A) Taylor receives an invitation from BuildCo to attend ' },
+    { text: 'a public product launch event', tokenId: 's1' },
+    { text: '. The event includes presentations, networking, and light refreshments. Many other engineers and industry professionals will be attending. (A1) At the event, Taylor speaks with a BuildCo representative. The following day, Taylor is invited to ' },
+    { text: 'a small private lunch with senior BuildCo staff to \u201cdiscuss upcoming opportunities with the council\u201d', tokenId: 's2' },
+    { text: '. (A2) After the lunch, BuildCo offers Taylor ' },
+    { text: 'tickets to a major sporting event, including hospitality', tokenId: 's3' },
+    { text: ', saying it is a \u201cthank you for taking the time to meet.\u201d (A3) BuildCo later offers to ' },
+    { text: 'fly Taylor to another city to visit one of their project sites, with all travel and accommodation covered', tokenId: 's4' },
+    { text: '. They suggest this will help Taylor \u201cbetter understand their capabilities\u201d before upcoming procurement decisions.' },
   ],
+
   steps: [
     { kind: 'annotation', tokenId: 's1', role: 'success', tag: 'Stage 1 · usually OK', title: 'A public event',
       body: 'Public, low value, many attendees, not tied to a live decision. Generally fine — stay transparent and disclose if unsure. Rule 5(a)(iii) sits in the background.' },
