@@ -7,7 +7,7 @@ export default function App() {
   const active = scenarios.find((s) => s.id === activeId) ?? scenarios[0];
 
   return (
-    <main style={{ maxWidth: 720, margin: '0 auto', padding: '2rem 1.25rem 4rem' }}>
+    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.25rem 4rem' }}>
       <header style={{ marginBottom: '1.5rem' }}>
         <h1 style={{ fontSize: 22, fontWeight: 500, margin: '0 0 4px' }}>Ethics scenario walkthroughs</h1>
         <p style={{ fontSize: 14, color: 'var(--text-secondary)', margin: 0 }}>

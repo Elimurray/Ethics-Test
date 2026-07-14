@@ -45,11 +45,13 @@ export function ScenarioWalkthrough({ scenario }: { scenario: Scenario }) {
     <div style={{ padding: '0.5rem 0' }}>
       <h2 className="sr-only">{scenario.summary}</h2>
 
+      <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <div style={{
+        flex: '1 1 400px',
         fontSize: 15, lineHeight: 2,
         color: activeToken ? 'var(--text-muted)' : 'var(--text-primary)',
         background: 'var(--surface-1)', borderRadius: 12,
-        padding: '1rem 1.25rem', marginBottom: '1rem',
+        padding: '1rem 1.25rem',
         transition: 'color .25s',
       }}>
         {facts.map((seg, idx) => {
@@ -65,6 +67,7 @@ export function ScenarioWalkthrough({ scenario }: { scenario: Scenario }) {
         })}
       </div>
 
+      <div style={{ flex: '1 1 340px', position: 'sticky', top: '1rem' }}>
       <div style={{
         borderRadius: 12, border: '0.5px solid var(--border)',
         background: 'var(--surface-2)', padding: '1rem 1.25rem', minHeight: 150,
@@ -99,6 +102,8 @@ export function ScenarioWalkthrough({ scenario }: { scenario: Scenario }) {
             }} />
           ))}
         </span>
+      </div>
+      </div>
       </div>
     </div>
   );
