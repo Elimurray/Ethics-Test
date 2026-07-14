@@ -1,0 +1,55 @@
+import type { Scenario } from '../types';
+
+export const alexBeam: Scenario = {
+  id: 'alex-beam',
+  name: 'Alex — the under-designed beam',
+  summary:
+    'Walkthrough of the Alex beam scenario: fact phrases are highlighted and mapped to ENZ Code rules, then assembled into the three answers.',
+  facts: [
+    { text: 'Alex is commissioned to do a ' },
+    { text: 'forensic investigation for an insurance company', tokenId: 's1' },
+    { text: ', examining a fire-damaged beam at a residential complex of five two-storey buildings. The beam itself is undamaged. But Alex notices the ' },
+    { text: 'beam is critical in a two-storey residential building', tokenId: 's2' },
+    { text: ' and, after running calculations, finds it is ' },
+    { text: 'considerably under-designed for the purpose', tokenId: 's3' },
+    { text: '. Worse, the building is one of five identical ones and ' },
+    { text: 'three of the five have already been completed', tokenId: 's4' },
+    { text: '. Alex ' },
+    { text: 'submitted the report to the insurance company', tokenId: 's5' },
+    { text: ' flagging the defect, but is uneasy about their ' },
+    { text: 'obligation to the public beyond only informing the insurance company', tokenId: 's6' },
+    { text: '. A senior colleague says the ' },
+    { text: 'obligation was fulfilled by notifying the insurance company', tokenId: 's7' },
+    { text: '.' },
+  ],
+  steps: [
+    { kind: 'annotation', tokenId: 's1', role: 'gray', tag: "Who's the client?", title: 'Note the engagement',
+      body: 'The job is a forensic investigation for the insurer — not the builder, not the council. Hold onto this: it is what makes the Rule 7 confidentiality check bite later.' },
+    { kind: 'annotation', tokenId: 's2', role: 'danger', tag: 'Rule 1', title: 'People will live here',
+      body: 'A critical structural member in an occupied two-storey dwelling. A foreseeable risk to the health and safety of people, so Rule 1 is engaged.' },
+    { kind: 'annotation', tokenId: 's3', role: 'warning', tag: 'Rule 3', title: 'The defect itself',
+      body: '"Considerably under-designed" is an engineering matter that could cause significant harm to people. That meets the definition of adverse consequences, so Rule 3.' },
+    { kind: 'annotation', tokenId: 's4', role: 'warning', tag: 'Rule 3', title: 'Already replicated',
+      body: 'Three identical buildings are finished. The risk is not hypothetical or contained — it is live across the complex, and nothing shows anyone is fixing it.' },
+    { kind: 'annotation', tokenId: 's5', role: 'warning', tag: 'Rule 3 · Step 1', title: 'Is it being managed?',
+      body: 'Alex told the insurer, but the insurer is not responsible for the other buildings’ safety. Informing your client is not the same as the matter being managed appropriately. Step 1 is not satisfied, so Alex cannot stop here.' },
+    { kind: 'annotation', tokenId: 's6', role: 'danger', tag: 'Public duty', title: 'The real question',
+      body: 'Alex’s instinct is correct: the obligation runs to the public, not only to the paying client. This is the heart of the scenario.' },
+    { kind: 'annotation', tokenId: 's7', role: 'pro', tag: 'The trap', title: 'Reject the reassurance',
+      body: '"You told the insurer, so you are done" is the trap. A colleague’s comfort does not discharge a public-safety duty. Consulting is good practice; accepting a wrong conclusion is not.' },
+    { kind: 'answer', role: 'success', tag: 'Answer 1', title: 'Main issues', items: [
+      'A public-safety defect: an under-designed critical beam in occupied dwellings.',
+      'Replication — three of five identical buildings already complete.',
+      'Does reporting to the insurer discharge Alex’s duty? (No.)',
+      'Confidentiality — the findings arose from the insurer engagement.' ] },
+    { kind: 'answer', role: 'success', tag: 'Answer 2', title: 'Rules that apply', items: [
+      'Rule 1 — safeguard the health and safety of future occupants.',
+      'Rule 3 — adverse consequences; walk the three steps. Not being managed, so escalate.',
+      'Rule 7 — the findings are the insurer’s; raise with them before disclosing to a regulator.' ] },
+    { kind: 'answer', role: 'success', tag: 'Answer 3', title: 'Course of action', items: [
+      'Go back to the insurer: state the risk extends to the three completed buildings.',
+      'Say you intend to notify the building consent authority unless it is addressed; give them a chance to respond (Rule 7).',
+      'If unresolved, report to the territorial / building consent authority (Rule 3, Step 3).',
+      'Document every step. Do not accept "you have told the client, you are done."' ] },
+  ],
+};
